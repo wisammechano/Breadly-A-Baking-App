@@ -3,4 +3,7 @@
     <string name="recipe_image">Recipe Image</string>
     <string name="title_step_list">Steps</string>
     <string name="title_step_detail">Step Detail</string>
+    <string name="invalid_id">Invalid Recipe ID</string>
+    <string name="step_checked">Step Checked</string>
+    <string name="ingredients">Recipe Ingredients</string>
 </resources>

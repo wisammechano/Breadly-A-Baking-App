@@ -21,11 +21,16 @@ import butterknife.ButterKnife;
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder> {
 
     private final List<Recipe> list = new ArrayList<>();
+    private final View.OnClickListener itemClickListener;
 
     void setList(List<Recipe> list) {
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
+    }
+
+    RecipesAdapter(View.OnClickListener listener) {
+        this.itemClickListener = listener;
     }
 
     @NonNull
@@ -41,6 +46,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipeVi
         if (!r.getImage().isEmpty())
             Picasso.with(holder.recipeImage.getContext()).load(r.getImage()).into(holder.recipeImage);
         holder.recipeName.setText(r.getName());
+
+        final int recipeId = r.getId();
+        holder.recipeImage.setTag(recipeId);
+        holder.recipeImage.setOnClickListener(itemClickListener);
     }
 
     @Override

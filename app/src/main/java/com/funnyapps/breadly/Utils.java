@@ -8,10 +8,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-class JSONUtil {
+class Utils {
     private static final String
             ID = "id",
             NAME = "name",
@@ -67,5 +72,16 @@ class JSONUtil {
         }
 
         return recipes;
+    }
+
+    static String inputStreamToString(InputStream in, Charset charset) throws IOException {
+        StringBuilder stringBuilder = new StringBuilder();
+        String line = null;
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, charset));
+        while ((line = bufferedReader.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+        return stringBuilder.toString();
     }
 }

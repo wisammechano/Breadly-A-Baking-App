@@ -4,6 +4,7 @@ public class Ingredient {
 	private int quantity;
 	private String measure;
 	private String ingredient;
+	private boolean checked = false;
 
 	public void setQuantity(int quantity){
 		this.quantity = quantity;
@@ -38,4 +39,12 @@ public class Ingredient {
 			",ingredient = '" + ingredient + '\'' + 
 			"}";
 		}
+
+	public boolean isChecked() {
+		return checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
 }
